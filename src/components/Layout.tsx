@@ -17,7 +17,7 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
                         </div>
                         <div>
                             <h1 className="text-lg font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
-                                MediSentient
+                                AuraIn
                             </h1>
                             <p className="text-xs text-slate-400">Predictive Command Center</p>
                         </div>
