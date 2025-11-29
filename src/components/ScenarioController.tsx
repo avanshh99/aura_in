@@ -3,6 +3,7 @@ import type { EventType } from '../types';
 import { Zap } from 'lucide-react';
 import clsx from 'clsx';
 import { useSimulationStore } from '../store';
+import { AutoDetectButton } from './AutoDetectButton';
 
 export const ScenarioController: React.FC = () => {
     const { activeEvent } = useSimulationStore();
@@ -17,6 +18,8 @@ export const ScenarioController: React.FC = () => {
                 <Zap className="w-4 h-4" />
                 <span className="text-sm font-medium uppercase tracking-wider">Inject Scenario:</span>
             </div>
+
+            <AutoDetectButton />
 
             {(Object.keys(SCENARIOS) as EventType[]).map((type) => {
                 const scenario = SCENARIOS[type];

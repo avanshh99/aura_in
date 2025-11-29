@@ -1,4 +1,5 @@
 
+
 import { Layout } from './components/Layout';
 import { AgentMonitor } from './components/AgentMonitor';
 import { RiskDashboard } from './components/RiskDashboard';
@@ -6,11 +7,15 @@ import { ScenarioController } from './components/ScenarioController';
 import { ParticleBackground } from './components/ParticleBackground';
 import { LiveMap } from './components/LiveMap';
 import { AnalyticsDashboard } from './components/AnalyticsDashboard';
+import { HospitalConfigPanel } from './components/HospitalConfigPanel';
+import { LocationDetector } from './components/LocationDetector';
 
 function App() {
   return (
     <>
       <ParticleBackground />
+      <LocationDetector />
+      <HospitalConfigPanel />
       <Layout>
         <div className="space-y-6 relative z-10">
           {/* Top Section: Controls and Dashboard */}

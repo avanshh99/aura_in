@@ -198,6 +198,25 @@ export const RiskDashboard: React.FC = () => {
               </p>
             </div>
 
+            {/* Agent Insights */}
+            {recommendations.length > 0 && (
+              <div className="pt-3 border-t border-slate-800">
+                <div className="text-xs text-slate-500 uppercase tracking-wider mb-2">AI Analysis</div>
+                <div className="space-y-2">
+                  <div className="flex items-center justify-between text-xs">
+                    <span className="text-slate-400">Predicted Load</span>
+                    <span className="text-cyan-400 font-semibold">
+                      {recommendations.length > 0 ? `${recommendations.length} actions` : 'Analyzing...'}
+                    </span>
+                  </div>
+                  <div className="flex items-center justify-between text-xs">
+                    <span className="text-slate-400">Response Time</span>
+                    <span className="text-emerald-400 font-semibold">Real-time</span>
+                  </div>
+                </div>
+              </div>
+            )}
+
             <div>
               <div className="text-xs text-slate-500 uppercase tracking-wider mb-2">Affected Departments</div>
               <div className="flex flex-wrap gap-2">
@@ -215,6 +234,7 @@ export const RiskDashboard: React.FC = () => {
               <Clock className="w-6 h-6" />
             </div>
             <p>System Idle</p>
+            <p className="text-xs text-slate-600">Select a scenario to begin</p>
           </div>
         )}
       </div>
