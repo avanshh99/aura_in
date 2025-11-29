@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import { weatherService } from '../services/weather';
 import type { WeatherData } from '../services/weather';
+import type { Hospital } from '../types';
 import { Loader2, AlertTriangle, Thermometer, Droplets, Wind } from 'lucide-react';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
@@ -28,7 +29,12 @@ const CITY_COORDINATES: Record<string, [number, number]> = {
     'Hyderabad,IN': [17.3850, 78.4867]
 };
 
-export const LiveMap: React.FC = () => {
+interface LiveMapProps {
+    hospitals?: Hospital[];
+    darkMode?: boolean;
+}
+
+export const LiveMap: React.FC<LiveMapProps> = () => {
     const [weatherData, setWeatherData] = useState<WeatherData[]>([]);
     const [loading, setLoading] = useState(true);
 
@@ -40,7 +46,6 @@ export const LiveMap: React.FC = () => {
         };
 
         fetchWeather();
-        // Poll every 5 minutes
         const interval = setInterval(fetchWeather, 5 * 60 * 1000);
         return () => clearInterval(interval);
     }, []);
@@ -65,7 +70,7 @@ export const LiveMap: React.FC = () => {
     return (
         <div className="h-[400px] rounded-xl overflow-hidden border border-slate-800 relative z-0">
             <MapContainer
-                center={[20.5937, 78.9629]} // Center of India
+                center={[20.5937, 78.9629]}
                 zoom={4}
                 scrollWheelZoom={false}
                 style={{ height: '100%', width: '100%' }}
@@ -75,13 +80,10 @@ export const LiveMap: React.FC = () => {
                     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                     url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
                 />
-
                 {weatherData.map((data) => {
                     const coords = CITY_COORDINATES[data.location];
                     if (!coords) return null;
-
                     const riskColor = getRiskColor(data.temp);
-
                     return (
                         <Marker key={data.location} position={coords}>
                             <Popup className="custom-popup">
@@ -89,13 +91,12 @@ export const LiveMap: React.FC = () => {
                                     <div className="flex items-center justify-between mb-2 border-b border-slate-200 pb-1">
                                         <h3 className="font-bold text-slate-800">{data.location.split(',')[0]}</h3>
                                         <span className={`text-xs font-bold px-2 py-0.5 rounded-full ${riskColor === 'red' ? 'bg-red-100 text-red-600' :
-                                            riskColor === 'orange' ? 'bg-orange-100 text-orange-600' :
-                                                'bg-green-100 text-green-600'
+                                                riskColor === 'orange' ? 'bg-orange-100 text-orange-600' :
+                                                    'bg-green-100 text-green-600'
                                             }`}>
                                             {riskColor === 'red' ? 'CRITICAL' : riskColor === 'orange' ? 'MODERATE' : 'NORMAL'}
                                         </span>
                                     </div>
-
                                     <div className="space-y-2 text-sm text-slate-600">
                                         <div className="flex items-center gap-2">
                                             <Thermometer className="w-4 h-4 text-slate-400" />

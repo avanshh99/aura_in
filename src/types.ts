@@ -39,4 +39,60 @@ export interface Recommendation {
     priority: 'LOW' | 'MEDIUM' | 'HIGH' | 'CRITICAL';
     category: 'STAFFING' | 'SUPPLIES' | 'ADVISORY';
     actionLabel?: string;
+    timestamp?: number;
+}
+
+export interface Hospital {
+    id: string;
+    name: string;
+    location: {
+        lat: number;
+        lng: number;
+        city: string;
+        state: string;
+        pin?: string;
+        coordinates?: { lat: number; lng: number };
+    };
+    capacity: {
+        beds: { total: number; available: number };
+        icu: { total: number; available: number };
+        er?: { total: number; available: number };
+    };
+    staff: {
+        doctors: { total: number; onDuty: number };
+        nurses: { total: number; onDuty: number };
+    };
+    inventory: {
+        oxygenCylinders: number;
+        ventilators: number;
+        bloodUnits: number;
+        burnKits: number;
+    };
+    currentOccupancy: number;
+    credentials?: {
+        username: string;
+        passwordHash: string;
+    };
+}
+
+export interface SurgePrediction {
+    hospitalId: string;
+    eventType: 'FESTIVAL' | 'POLLUTION' | 'EPIDEMIC';
+    eventName: string;
+    predictedDate: Date;
+    expectedIncrease: {
+        admissions: number;
+        icuNeed: number;
+        erNeed: number;
+    };
+    recommendations: string[];
+    // Legacy fields for backward compatibility
+    id?: string;
+    hospital?: string;
+    event?: string;
+    predictedSurge?: number;
+    daysAway?: number;
+    icuNeed?: number;
+    aqi?: number;
+    vectorIncrease?: number;
 }
