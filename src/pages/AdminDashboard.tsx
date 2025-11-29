@@ -5,6 +5,7 @@ import { LiveMap } from '../components/LiveMap';
 import { useNavigate } from 'react-router-dom';
 import { WhatIfChatbot } from '../components/WhatIfChatbot';
 import { AgentMonitor } from '../components/AgentMonitor';
+import { AgentResults } from '../components/AgentResults';
 
 export const AdminDashboard: React.FC = () => {
     const navigate = useNavigate();
@@ -85,6 +86,9 @@ export const AdminDashboard: React.FC = () => {
                 {/* Agent Monitor */}
                 <AgentMonitor darkMode={darkMode} />
 
+                {/* Agent Results - Detailed Outputs */}
+                <AgentResults darkMode={darkMode} />
+
                 {/* Map Section */}
                 <div className={`${darkMode ? 'bg-slate-900 border-slate-800' : 'bg-white border-gray-200'} border rounded-xl p-6 mb-8`}>
                     <div className="flex items-center gap-2 mb-4">
@@ -140,12 +144,12 @@ export const AdminDashboard: React.FC = () => {
                                             </td>
                                             <td className="py-3 px-4">
                                                 <span className={`inline-flex items-center gap-1 px-2 py-1 rounded-full text-xs font-semibold ${status.color === 'red' ? 'bg-red-100 text-red-700' :
-                                                        status.color === 'yellow' ? 'bg-yellow-100 text-yellow-700' :
-                                                            'bg-green-100 text-green-700'
+                                                    status.color === 'yellow' ? 'bg-yellow-100 text-yellow-700' :
+                                                        'bg-green-100 text-green-700'
                                                     }`}>
                                                     <div className={`w-1.5 h-1.5 rounded-full ${status.color === 'red' ? 'bg-red-500' :
-                                                            status.color === 'yellow' ? 'bg-yellow-500' :
-                                                                'bg-green-500'
+                                                        status.color === 'yellow' ? 'bg-yellow-500' :
+                                                            'bg-green-500'
                                                         }`} />
                                                     {status.label}
                                                 </span>
