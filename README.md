@@ -228,21 +228,6 @@ Government    Custom        State Health Depts.           - Full platform access
                                                           - Policy tools
 ```
 
-**Year 1 Revenue Projection:**
-- 20 hospitals × ₹40,000/month = ₹96L/year
-- 2 government contracts × ₹50L/year = ₹1Cr/year
-- **Total: ₹1.96 Cr ARR**
-
-#### 2. **Data Analytics & Insights (Secondary)**
-- Anonymized health trend reports for pharma companies
-- Epidemic forecasting for insurance providers
-- **Estimated: ₹30L/year**
-
-#### 3. **API Access (Future)**
-- Developer API for third-party integrations
-- Telemedicine platforms, ambulance services
-- **Estimated: ₹20L/year**
-
 ### Unit Economics
 
 | Metric | Value | Notes |
