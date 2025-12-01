@@ -1,6 +1,5 @@
 # 🏥 AuraIn 
 
-> **AI-Powered Healthcare Resource Optimization Platform**  
 > Real-time surge prediction, intelligent resource allocation, and proactive capacity planning for Indian hospitals.
 
 [![Build Status](https://img.shields.io/badge/build-passing-brightgreen)]() [![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue)]() [![React](https://img.shields.io/badge/React-18-61dafb)]()
