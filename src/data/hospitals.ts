@@ -12,7 +12,7 @@ export const MOCK_HOSPITALS: Hospital[] = [
             state: 'Delhi',
         },
         capacity: {
-            beds: { total: 2500, available: 450 },
+            beds: { total: 200, available: 4150 },
             icu: { total: 300, available: 45 },
             er: { total: 150, available: 20 },
         },
@@ -23,7 +23,7 @@ export const MOCK_HOSPITALS: Hospital[] = [
         inventory: {
             oxygenCylinders: 500,
             ventilators: 100,
-            bloodUnits: 800,
+            bloodUnits: 900,
             burnKits: 50,
         },
         currentOccupancy: 82,
@@ -47,7 +47,7 @@ export const MOCK_HOSPITALS: Hospital[] = [
             er: { total: 30, available: 8 },
         },
         staff: {
-            doctors: { total: 120, onDuty: 40 },
+            doctors: { total: 200, onDuty: 40 },
             nurses: { total: 280, onDuty: 90 },
         },
         inventory: {
