@@ -29,7 +29,7 @@ export const api = {
         } catch (error) {
             return {
                 success: false,
-                error: error instanceof Error ? error.message : 'Unknown error occurred'
+                
             };
         }
     },
