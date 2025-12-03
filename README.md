@@ -30,7 +30,6 @@
 - **4 specialized AI agents** working in concert
 - **30% reduction** in resource wastage (projected)
 - **40% improvement** in bed utilization (projected)
-- **₹50L+ annual savings** per hospital (projected)
 
 ---
 
